@@ -9,35 +9,32 @@
 
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{% static 'css/log.css' %}" rel="stylesheet" />
-  
-
 </head>
 
-  <body>
-<div class="login-box">
-  <h1>Login</h1>
-  <div class="textbox">
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul> <!-- يجب إغلاق العنصر ul هنا -->
-    {% endif %} <!-- يجب إغلاق تعليمة الشرط هنا -->
-    <i class="fas fa-user"></i>
-    <form method='post'>
-        {% csrf_token %}
-    <input type="text" placeholder="Username" name='username'>
-    
-  </div>
+<body>
+    <div class="login-box">
+        <h1>Login</h1>
+        <div class="textbox">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <i class="fas fa-user"></i>
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" placeholder="Username" name="username">
+        </div>
 
-  <div class="textbox">
-    <i class="fas fa-lock"></i>
-    <input type="password" placeholder="Password" name='password'>
-  </div>
+        <div class="textbox">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" name="password">
+        </div>
 
-  <input type="submit" class="btn" value="Sign in">
-</form>
-</div>
-  </body>
+        <input type="submit" class="btn" value="Sign in">
+        </form>
+    </div>
+</body>
 </html>
